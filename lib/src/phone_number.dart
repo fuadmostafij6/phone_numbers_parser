@@ -1,3 +1,4 @@
+import 'package:phone_numbers_parser/metadata.dart';
 import 'package:phone_numbers_parser/src/formatters/phone_number_formatter.dart';
 import 'package:phone_numbers_parser/src/models/phone_number_range.dart';
 import 'package:phone_numbers_parser/src/models/phone_number_type.dart';
@@ -101,6 +102,13 @@ class PhoneNumber {
 
   static PhoneNumberRange getRange(PhoneNumber start, PhoneNumber end) =>
       PhoneNumberRange(start, end);
+  static List<IsoCode> getIsoCodesFromCountryCode(String countryCode) {
+    final isoCodes = countryCodeToIsoCode[countryCode];
+    if (isoCodes == null) {
+      return [];
+    }
+    return isoCodes;
+  }
 
   @override
   bool operator ==(Object other) {
