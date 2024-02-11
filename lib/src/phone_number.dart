@@ -6,6 +6,7 @@ import 'package:phone_numbers_parser/src/parsers/_text_parser.dart';
 import 'package:phone_numbers_parser/src/parsers/_validator.dart';
 import 'package:phone_numbers_parser/src/parsers/phone_parser.dart';
 import 'package:phone_numbers_parser/src/metadata/metadata_finder.dart';
+import 'package:phone_numbers_parser/src/metadata/generated/country_code_to_iso_code.dart';
 
 import 'models/iso_code.dart';
 
@@ -102,6 +103,7 @@ class PhoneNumber {
 
   static PhoneNumberRange getRange(PhoneNumber start, PhoneNumber end) =>
       PhoneNumberRange(start, end);
+
   static List<IsoCode> getIsoCodesFromCountryCode(String countryCode) {
     final isoCodes = countryCodeToIsoCode[countryCode];
     if (isoCodes == null) {
